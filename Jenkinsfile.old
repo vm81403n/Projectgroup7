@@ -12,7 +12,12 @@ pipeline {
             ''' 
       }
     }
-       
+
+     stage ('Build') {
+      steps {
+      sh 'mvn clean package'
+      }
+    }
    stage('Scan') {
       steps {
         sh 'grype dir:. --scope AllLayers'
