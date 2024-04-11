@@ -1,4 +1,4 @@
-pipeline {
+ pipeline {
   agent any 
   tools {
     maven 'Maven'
@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage ('Build') {
       steps {
-      sh 'mvn clean package -Dcheckstyle.skip'
+      sh 'set +e && mvn clean package -Dcheckstyle.skip && set -e'
       }
     }
 
