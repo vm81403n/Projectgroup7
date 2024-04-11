@@ -6,7 +6,7 @@
   stages {
     stage ('Build') {
       steps {
-      sh 'set +e && mvn clean package -Dcheckstyle.skip'
+      sh 'set +e && mvn clean package && set -e'
       }
     }
 
