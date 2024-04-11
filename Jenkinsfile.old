@@ -12,11 +12,6 @@
             ''' 
       }
     }
-    stage ('Build') {
-      steps {
-      sh 'set +e && mvn clean package && set -e'
-      }
-    }
 
    stage('Scan') {
       steps {
