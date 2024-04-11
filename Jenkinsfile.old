@@ -12,19 +12,13 @@ pipeline {
             ''' 
       }
     }
-    
-    stage ('Build') {
+       
+   stage('Scan') {
       steps {
-      sh 'mvn clean package'
+        sh 'grype dir:. --scope AllLayers'
       }
     }
-     stage ('Deploy-To-Tomcat') {
-        steps {
-        sshagent(['tomcat']) {
-        sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@3.101.54.26:/home/ubuntu/apache-tomcat-8.5.99/webapps/webapp.war'
-              }      
-           }       
-    }
+  
 
     
   }
