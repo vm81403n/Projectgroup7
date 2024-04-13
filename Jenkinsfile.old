@@ -13,12 +13,11 @@
       }
     }
 
-   stage('Scan') {
+   stage ('Build') {
       steps {
-        sh 'grype dir:. --scope AllLayers'
+      sh 'mvn clean package'
       }
     }
-  
 
     
   }
