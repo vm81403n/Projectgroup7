@@ -4,7 +4,12 @@
     maven 'Maven'
   }
   stages {
-
+ 
+   stage('Scan') {
+      steps {
+        sh 'grype dir:. --scope AllLayers'
+      }
+    }
 
    stage ('Build') {
       steps {
